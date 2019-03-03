@@ -1,0 +1,52 @@
+import java.util.Arrays;
+
+
+public class StringText {
+
+	public static void main(String[] args) {
+		//String 的属性方法整理
+		/*
+		 * Length();size(); equals、equalsIgnoreCase忽略大小比较 toLowerCase、 字母小写
+		 * toUpperCase字母大写 Concat 拼接 indexOf（String str）、 查找指定字符串在本字符串第一次出现的下标
+		 * lastIndexOf subString 截取字符串 Trim 去掉前后空格 Split
+		 */
+		//定义三个字符串备用。
+		String str1="abc";
+		String str2="fa";
+		String str3="  asdfasdfasdfasdfasdfasdfasdfasdfasdf  ";
+		
+		//length()方法
+		System.out.println(str1.length()+str2.length()+str3.length());
+		
+		//equals方法、equalsIgnoreCase方法
+		System.out.println(str1.equals(str2)?"相同":"不同");
+		System.out.println(str1.equals("AbC")?"相同":"不同");
+		System.out.println(str1.equalsIgnoreCase("AbC")?"相同":"不同");
+		
+		//toLowerCase toUperCase Concat
+		System.out.println(str1.toUpperCase()+"\"AcD\"".toLowerCase().concat(str2));
+		
+		//Trim
+		System.out.println("|"+str3.trim()+"|");
+		
+		//indexOf  lastIndexOf subString Split
+		System.out.println(str3.trim().indexOf(str2));
+		System.out.println(str3.trim().lastIndexOf(str2));
+		System.out.println(str3.trim().substring(7));
+		System.out.println(Arrays.toString(str3.trim().split(str2)));
+		
+		//判断str3中str2字符的重复次数
+		System.out.println(str3.trim().split(str2).length-1);
+		//或
+		
+		int str4=0,tmp=0;
+		for (int i = 0; i < str3.length(); i++) {
+			if (str3.indexOf("fa",i)>0&&str3.indexOf("fa",i)!=str4) {
+				str4=str3.indexOf("fa",i);
+				tmp++;
+			}
+		}
+		System.out.println(tmp);
+	}
+
+}
